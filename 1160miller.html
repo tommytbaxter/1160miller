@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1160 Miller Ave, Berkeley Hills — $2,895,000</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F4EF;
+    --warm-white: #FDFCFA;
+    --charcoal: #1C1C1A;
+    --mid: #5C5A55;
+    --light: #9C9A95;
+    --accent: #7B6B52;
+    --accent-light: #C4AD8C;
+    --border: rgba(28,28,26,0.1);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(253,252,250,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-address {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--charcoal);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--charcoal); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 60px;
+  }
+
+  .hero-image {
+    position: relative;
+    overflow: hidden;
+    background: #D4CFC8;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh - 60px);
+    background: linear-gradient(135deg, #D4CFC8 0%, #C4B99A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-family: var(--serif);
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .hero-content {
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--cream);
+  }
+
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .hero-subtitle {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 40px;
+  }
+
+  .hero-price {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 32px;
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+    padding: 20px 0;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-bottom: 40px;
+  }
+
+  .hero-stat {
+    text-align: center;
+    padding: 16px 8px;
+    border-right: 0.5px solid var(--border);
+  }
+
+  .hero-stat:last-child { border-right: none; }
+
+  .stat-val {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--charcoal);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-lbl {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--light);
+    font-weight: 400;
+  }
+
+  .open-house-banner {
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .oh-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+
+  .oh-text {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  .oh-text strong {
+    font-weight: 500;
+    color: var(--accent-light);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+    font-family: var(--sans);
+  }
+
+  .btn-dark {
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+
+  .btn-dark:hover { background: #333; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--charcoal);
+    border: 1px solid var(--charcoal);
+  }
+
+  .btn-outline:hover {
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 0; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 48px;
+  }
+
+  /* DESCRIPTION */
+  #description { background: var(--warm-white); }
+
+  .description-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .description-body {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--mid);
+    font-weight: 300;
+  }
+
+  .description-body p + p { margin-top: 20px; }
+
+  .highlight-box {
+    background: var(--cream);
+    padding: 40px;
+    border-left: 2px solid var(--accent-light);
+  }
+
+  .highlight-box h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .highlight-box p {
+    font-size: 15px;
+    color: var(--mid);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .highlight-box .adu-stats {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .adu-stat-item { text-align: left; }
+
+  .adu-stat-val {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--charcoal);
+    display: block;
+  }
+
+  .adu-stat-lbl {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+
+  /* FEATURES */
+  #features { background: var(--cream); }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 0.5px solid var(--border);
+  }
+
+  .feature-group {
+    padding: 40px;
+    border-right: 0.5px solid var(--border);
+  }
+
+  .feature-group:last-child { border-right: none; }
+
+  .feature-group h3 {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .feature-list { list-style: none; }
+
+  .feature-list li {
+    font-size: 14px;
+    color: var(--mid);
+    padding: 8px 0;
+    border-bottom: 0.5px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-weight: 300;
+  }
+
+  .feature-list li::before {
+    content: '—';
+    color: var(--accent-light);
+    flex-shrink: 0;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+
+  /* GALLERY */
+  #gallery { background: var(--charcoal); padding: 80px 0; }
+
+  #gallery .section-label { color: var(--accent-light); }
+  #gallery .section-title { color: var(--cream); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+  }
+
+  .gallery-item {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #2C2C2A;
+    position: relative;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-item:hover img { transform: scale(1.04); }
+
+  .gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2C2C2A;
+    color: #5C5A55;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .gallery-item.wide {
+    grid-column: span 2;
+  }
+
+  /* VIDEO */
+  #video { background: var(--cream); }
+
+  .video-container {
+    aspect-ratio: 16/9;
+    background: var(--charcoal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-placeholder {
+    text-align: center;
+    color: var(--light);
+  }
+
+  .video-placeholder p {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    color: #5C5A55;
+    margin-top: 12px;
+  }
+
+  .play-icon {
+    width: 72px; height: 72px;
+    border: 1px solid #5C5A55;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+  }
+
+  .play-icon::after {
+    content: '';
+    border-style: solid;
+    border-width: 10px 0 10px 18px;
+    border-color: transparent transparent transparent #5C5A55;
+    margin-left: 4px;
+  }
+
+  /* NEIGHBORHOOD */
+  #neighborhood { background: var(--warm-white); }
+
+  .neighborhood-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .neighborhood-body {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--mid);
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+
+  .nearby-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .nearby-list li {
+    font-size: 13px;
+    color: var(--mid);
+    padding: 10px 0;
+    border-bottom: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 300;
+  }
+
+  .nearby-list li::before {
+    content: '↗';
+    color: var(--accent-light);
+    font-size: 12px;
+  }
+
+  .map-embed {
+    height: 400px;
+    background: #D4CFC8;
+    overflow: hidden;
+  }
+
+  .map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(30%) contrast(0.9);
+  }
+
+  /* OPEN HOUSES */
+  #schedule { background: var(--cream); }
+
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  .event-list { list-style: none; }
+
+  .event-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-bottom: 0.5px solid var(--border);
+    align-items: center;
+  }
+
+  .event-date {
+    text-align: center;
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 12px;
+  }
+
+  .event-month {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: block;
+  }
+
+  .event-day {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1;
+    display: block;
+  }
+
+  .event-info h4 {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+
+  .event-info p {
+    font-size: 13px;
+    color: var(--light);
+    font-weight: 300;
+  }
+
+  /* AGENTS */
+  #agents { background: var(--warm-white); }
+
+  .agents-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .agent-card {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .agent-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 0;
+    overflow: hidden;
+    background: var(--cream);
+    flex-shrink: 0;
+  }
+
+  .agent-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .agent-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--accent-light);
+  }
+
+  .agent-info h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+
+  .agent-title {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .agent-bio {
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .agent-contact { list-style: none; }
+
+  .agent-contact li {
+    font-size: 13px;
+    color: var(--mid);
+    padding: 4px 0;
+    font-weight: 300;
+  }
+
+  .agent-contact a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .agent-contact a:hover { color: var(--charcoal); }
+
+  /* CONTACT */
+  #contact { background: var(--charcoal); }
+
+  #contact .section-label { color: var(--accent-light); }
+  #contact .section-title { color: var(--cream); margin-bottom: 16px; }
+
+  .contact-intro {
+    font-size: 16px;
+    color: #9C9A95;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+  .form-group label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9C9A95;
+    font-weight: 400;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background: rgba(255,255,255,0.05);
+    border: 0.5px solid rgba(255,255,255,0.15);
+    color: var(--cream);
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: var(--sans);
+    font-weight: 300;
+    transition: border-color 0.2s;
+    outline: none;
+    appearance: none;
+    border-radius: 0;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--accent-light);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-group select option { background: #2C2C2A; color: var(--cream); }
+
+  .btn-submit {
+    background: var(--accent-light);
+    color: var(--charcoal);
+    padding: 16px 40px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    font-family: var(--sans);
+    transition: background 0.2s;
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+
+  .btn-submit:hover { background: #D4BD9E; }
+
+  .contact-details h3 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .contact-details .subtitle {
+    font-size: 13px;
+    color: #9C9A95;
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+
+  .contact-agent {
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  }
+
+  .contact-agent:last-of-type { border-bottom: none; }
+
+  .contact-agent-name {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+
+  .contact-agent-role {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+
+  .contact-agent a {
+    display: block;
+    font-size: 14px;
+    color: #9C9A95;
+    text-decoration: none;
+    font-weight: 300;
+    padding: 3px 0;
+    transition: color 0.2s;
+  }
+
+  .contact-agent a:hover { color: var(--accent-light); }
+
+  /* FOOTER */
+  footer {
+    background: #141412;
+    padding: 32px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-left {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 300;
+    color: #5C5A55;
+  }
+
+  .footer-right {
+    font-size: 11px;
+    color: #3C3C3A;
+    letter-spacing: 0.08em;
+    text-align: right;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: var(--accent-light);
+    margin: 0 0 40px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-image { min-height: 50vh; }
+    .hero-content { padding: 48px 24px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .container { padding: 0 24px; }
+    section { padding: 60px 0; }
+    .description-grid,
+    .neighborhood-grid,
+    .schedule-grid,
+    .agents-grid,
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-group { border-right: none; border-bottom: 0.5px solid var(--border); }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item.wide { grid-column: span 1; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-address">1160 Miller Ave, Berkeley Hills</span>
+  <ul class="nav-links">
+    <li><a href="#description">Overview</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#neighborhood">Neighborhood</a></li>
+    <li><a href="#schedule">Open Houses</a></li>
+    <li><a href="#agents">Agents</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-image">
+    <!-- REPLACE: Add your best exterior/view photo here -->
+    <!-- <img src="YOUR_HERO_PHOTO.jpg" alt="1160 Miller Ave, Berkeley Hills"> -->
+    <div class="hero-image-placeholder">
+      Add your hero photo here<br><small style="font-size:13px; margin-top:8px; display:block; opacity:0.6">Best exterior or Bay view shot</small>
+    </div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-tag">Berkeley Hills, CA 94708 · Compass</span>
+    <h1 class="hero-title">1160<br>Miller Ave</h1>
+    <p class="hero-subtitle">A one-of-a-kind Berkeley Hills estate</p>
+
+    <div class="open-house-banner">
+      <div class="oh-dot"></div>
+      <span class="oh-text"><strong>Open House — Fri Apr 25</strong> &nbsp;1:00 – 4:30 PM</span>
+    </div>
+
+    <div class="hero-price">$2,895,000</div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="stat-val">5</span>
+        <span class="stat-lbl">Beds</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-val">4</span>
+        <span class="stat-lbl">Baths</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-val">3,348</span>
+        <span class="stat-lbl">Sq Ft</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-val">12,500</span>
+        <span class="stat-lbl">Lot Sq Ft</span>
+      </div>
+    </div>
+
+    <a href="#contact" class="btn btn-dark">Request a Showing</a>
+  </div>
+</section>
+
+<!-- DESCRIPTION -->
+<section id="description">
+  <div class="container">
+    <div class="description-grid">
+      <div>
+        <span class="section-label">The Property</span>
+        <h2 class="section-title">Where nature meets refined living</h2>
+        <div class="divider"></div>
+        <div class="description-body">
+          <p>Rare in every sense, this Berkeley Hills estate spans two parcels totaling over 12,500 square feet — offering a lifestyle that is equal parts serene retreat and sophisticated entertainer's dream.</p>
+          <p>Beyond a private, understated entrance, a tranquil courtyard sets the tone. High ceilings, natural light, and sweeping Bay views unfold across a split-level layout that balances open gathering spaces with peaceful private retreats.</p>
+          <p>The chef's kitchen is the heart of the home: quartz countertops, custom cabinetry, premium appliances, and a wine fridge, opening seamlessly to the dining area and a generous deck where Bay views make every meal feel like an occasion.</p>
+          <p>Hardwood floors run throughout. A gas fireplace anchors the living room. The main level offers three bedrooms including a primary suite retreat and a flexible bedroom with private exterior entry — ideal as a home office or studio. Downstairs: a family room, media area, wet bar, full bath, and a guest suite opening directly to a private deck amid lush greenery.</p>
+          <p>A bocce court, fruit trees, dual laundry areas, wine storage, and a two-car garage with 220V EV outlet complete this extraordinary property.</p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <h3>The ADU — a home within a home</h3>
+        <p>The renovated accessory dwelling unit is the property's most remarkable feature. With its own private entrance, deck, and sweeping Bay views, it opens possibilities that few Berkeley Hills properties can offer.</p>
+        <p>Whether for multigenerational living, rental income, a dedicated workspace, or a guest house — this is a rare asset that dramatically expands what the property can be.</p>
+        <p>As part of the sale, the seller would also like to include 1162 Miller, which contains the gorgeously remodeled ADU structure. Call the listing agents for more information.</p>
+        <div class="adu-stats">
+          <div class="adu-stat-item">
+            <span class="adu-stat-val">520</span>
+            <span class="adu-stat-lbl">ADU Sq Ft</span>
+          </div>
+          <div class="adu-stat-item">
+            <span class="adu-stat-val">2</span>
+            <span class="adu-stat-lbl">Parcels</span>
+          </div>
+          <div class="adu-stat-item">
+            <span class="adu-stat-val">5</span>
+            <span class="adu-stat-lbl">BESO Score</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <span class="section-label">Property Features</span>
+    <h2 class="section-title">Everything you need, nothing you don't</h2>
+    <div class="features-grid">
+      <div class="feature-group">
+        <h3>Interior</h3>
+        <ul class="feature-list">
+          <li>5 bedrooms / 4 full bathrooms</li>
+          <li>3,348 sq ft (includes ADU)</li>
+          <li>Hardwood floors throughout</li>
+          <li>Chef's kitchen with quartz counters</li>
+          <li>Custom cabinetry + wine fridge</li>
+          <li>Gas fireplace in living room</li>
+          <li>Wet bar on lower level</li>
+          <li>Wine storage</li>
+          <li>High ceilings throughout</li>
+          <li>Split-level layout</li>
+        </ul>
+      </div>
+      <div class="feature-group">
+        <h3>Outdoor &amp; ADU</h3>
+        <ul class="feature-list">
+          <li>Two expansive decks with Bay views</li>
+          <li>Renovated ADU with private entrance</li>
+          <li>ADU deck with sweeping vista</li>
+          <li>Serene private entry courtyard</li>
+          <li>Bocce court</li>
+          <li>Fruit trees</li>
+          <li>12,500 sq ft across two parcels</li>
+          <li>Lush landscaping</li>
+        </ul>
+      </div>
+      <div class="feature-group">
+        <h3>Practical</h3>
+        <ul class="feature-list">
+          <li>2-car detached garage</li>
+          <li>220V EV charging outlet</li>
+          <li>Dual laundry areas</li>
+          <li>Tankless water heater</li>
+          <li>Forced air heating</li>
+          <li>BESO Energy Score: 5</li>
+          <li>Built 1939 / updated</li>
+          <li>No HOA</li>
+          <li>Cash or conventional financing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <span class="section-label">Photo Gallery</span>
+    <h2 class="section-title">Explore the property</h2>
+  </div>
+  <div style="padding: 0 60px;">
+    <div class="gallery-grid">
+      <!-- REPLACE these placeholders with your actual <img> tags -->
+      <!-- Example: <img src="photo1.jpg" alt="Living room"> -->
+      <!-- Use class="wide" on one item per row to make it span 2 columns -->
+      <div class="gallery-item wide">
+        <div class="gallery-placeholder">Living Room / Main View<br><small>Add photo here</small></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">Kitchen<br><small>Add photo</small></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">Deck / Bay View<br><small>Add photo</small></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">Primary Suite<br><small>Add photo</small></div>
+      </div>
+      <div class="gallery-item wide">
+        <div class="gallery-placeholder">Bay View from Deck<br><small>Add photo here</small></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">ADU Interior<br><small>Add photo</small></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">ADU Deck<br><small>Add photo</small></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">Courtyard Entry<br><small>Add photo</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="container">
+    <span class="section-label">Property Tour</span>
+    <h2 class="section-title">See it come to life</h2>
+    <div class="video-container">
+      <!-- REPLACE with your video embed when ready -->
+      <!-- Example YouTube embed: -->
+      <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
+      <div class="video-placeholder">
+        <div class="play-icon"></div>
+        <p>Video tour coming soon</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEIGHBORHOOD -->
+<section id="neighborhood">
+  <div class="container">
+    <div class="neighborhood-grid">
+      <div>
+        <span class="section-label">The Neighborhood</span>
+        <h2 class="section-title">Berkeley Hills — where nature meets the city</h2>
+        <div class="divider"></div>
+        <p class="neighborhood-body">1160 Miller Ave sits in the heart of the Berkeley Hills, one of the East Bay's most sought-after residential enclaves. Tree-lined streets, canyon views, and immediate access to Tilden Regional Park make this neighborhood a true retreat within the city.</p>
+        <ul class="nearby-list">
+          <li>Tilden Regional Park</li>
+          <li>Downtown Berkeley</li>
+          <li>BART (minutes away)</li>
+          <li>UC Berkeley</li>
+          <li>Peet's Coffee</li>
+          <li>North Berkeley dining</li>
+          <li>Oakland (10 min)</li>
+          <li>San Francisco (25 min)</li>
+        </ul>
+      </div>
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3148.2!2d-122.2485!3d37.8875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80857e9a1a1a1a1a%3A0x1a1a1a1a1a1a1a1a!2s1160+Miller+Ave%2C+Berkeley%2C+CA+94708!5e0!3m2!1sen!2sus!4v1"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="1160 Miller Ave location map">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule">
+  <div class="container">
+    <div class="schedule-grid">
+      <div>
+        <span class="section-label">Open Houses</span>
+        <h2 class="section-title">Come see it in person</h2>
+        <div class="divider"></div>
+        <ul class="event-list">
+          <li class="event-item">
+            <div class="event-date">
+              <span class="event-month">Apr</span>
+              <span class="event-day">25</span>
+            </div>
+            <div class="event-info">
+              <h4>Open House</h4>
+              <p>Friday · 1:00 PM – 4:30 PM</p>
+            </div>
+          </li>
+          <!-- ADD more open house dates here in the same format -->
+        </ul>
+        <div style="margin-top: 40px;">
+          <a href="#contact" class="btn btn-outline">Request a Private Showing</a>
+        </div>
+      </div>
+      <div>
+        <span class="section-label">MLS Info</span>
+        <h2 class="section-title" style="font-size: 32px;">Listing Details</h2>
+        <div class="divider"></div>
+        <ul class="feature-list">
+          <li>MLS# 41126748</li>
+          <li>List Date: March 16, 2026</li>
+          <li>Status: Active</li>
+          <li>Style: Two Story / Traditional</li>
+          <li>Lot: 12,500 sq ft (two parcels)</li>
+          <li>Year Built: 1939</li>
+          <li>Garage: 2-car detached</li>
+          <li>Zoning: Residential</li>
+          <li>Schools: Berkeley Unified</li>
+          <li>No HOA</li>
+          <li>Terms: Cash, Conventional</li>
+          <li>Directions: Grizzly Peak, west on Stevenson to Miller</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section id="agents">
+  <div class="container">
+    <span class="section-label">Your Agents</span>
+    <h2 class="section-title">Listed by</h2>
+    <div class="divider"></div>
+    <div class="agents-grid">
+      <div class="agent-card">
+        <div class="agent-photo">
+          <!-- REPLACE: <img src="tom-headshot.jpg" alt="Tom Telfer"> -->
+          <div class="agent-photo-placeholder">TT</div>
+        </div>
+        <div class="agent-info">
+          <h3>Tom Telfer</h3>
+          <p class="agent-title">REALTOR® · DRE# 02121473 · Compass</p>
+          <p class="agent-bio">A trusted Bay Area Realtor known for calm, honest guidance and a hands-on approach. Tom's background in media production gives sellers a marketing edge — he knows how to tell the story of a home. Decades of personal experience in homeownership, remodeling, and design mean he knows what makes a property truly shine.</p>
+          <ul class="agent-contact">
+            <li>📞 <a href="tel:+19255883858">925-588-3858</a></li>
+            <li>✉️ <a href="mailto:tom.telfer@compass.com">tom.telfer@compass.com</a></li>
+            <li>🔗 <a href="https://www.compass.com/agents/tom-telfer/" target="_blank">View Compass Profile</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="agent-card">
+        <div class="agent-photo">
+          <!-- REPLACE: <img src="dan-headshot.jpg" alt="Dan Fitzpatrick"> -->
+          <div class="agent-photo-placeholder">DF</div>
+        </div>
+        <div class="agent-info">
+          <h3>Dan Fitzpatrick</h3>
+          <p class="agent-title">Broker Associate · DRE# 01892947 · Compass</p>
+          <p class="agent-bio">With over 15 years of Bay Area real estate experience and a law degree from the University of San Francisco, Dan brings a rare combination of market expertise and legal acumen to every transaction. A UC Berkeley alum, he's among the top-producing agents in the East Bay year over year.</p>
+          <ul class="agent-contact">
+            <li>📞 <a href="tel:+14155195020">415-519-5020</a></li>
+            <li>✉️ <a href="mailto:dan.fitzpatrick@compass.com">dan.fitzpatrick@compass.com</a></li>
+            <li>🔗 <a href="https://www.compass.com/agents/dan-fitzpatrick/" target="_blank">View Compass Profile</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 48px; padding-top: 32px; border-top: 0.5px solid var(--border);">
+      <p style="font-size: 13px; color: var(--light); font-weight: 300; line-height: 1.7;">Compass · 1699 Van Ness Ave, San Francisco, CA 94109 · DRE# 01527235<br>
+      SqFt and bed/bath count include the ADU and may differ from public records. Buyer to verify all information independently.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <span class="section-label">Get In Touch</span>
+    <h2 class="section-title">Request a showing</h2>
+    <p class="contact-intro">Interested in 1160 Miller Ave? We'd love to show you around.</p>
+    <div class="contact-grid">
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="firstName" placeholder="Jane" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="lastName" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="jane@example.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="(415) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>I'm interested in</label>
+          <select name="interest">
+            <option value="">Select one...</option>
+            <option value="showing">Scheduling a private showing</option>
+            <option value="info">Getting more information</option>
+            <option value="offer">Making an offer</option>
+            <option value="open">Attending an open house</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Tell us a bit about what you're looking for..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send Message</button>
+        <div id="form-success" style="display:none; color: var(--accent-light); font-size:14px; margin-top:8px;">
+          Thank you! We'll be in touch shortly.
+        </div>
+      </form>
+      <div class="contact-details">
+        <h3>Tom Telfer &amp; Dan Fitzpatrick</h3>
+        <p class="subtitle">Compass Real Estate · Berkeley Hills Specialists</p>
+        <div class="contact-agent">
+          <p class="contact-agent-name">Tom Telfer</p>
+          <p class="contact-agent-role">REALTOR® · DRE# 02121473</p>
+          <a href="tel:+19255883858">925-588-3858</a>
+          <a href="mailto:tom.telfer@compass.com">tom.telfer@compass.com</a>
+        </div>
+        <div class="contact-agent">
+          <p class="contact-agent-name">Dan Fitzpatrick</p>
+          <p class="contact-agent-role">Broker Associate · DRE# 01892947</p>
+          <a href="tel:+14155195020">415-519-5020</a>
+          <a href="mailto:dan.fitzpatrick@compass.com">dan.fitzpatrick@compass.com</a>
+        </div>
+        <div style="margin-top: 32px; padding-top: 32px; border-top: 0.5px solid rgba(255,255,255,0.08);">
+          <p style="font-size:12px; color: #5C5A55; line-height:1.7;">
+            Go and show — available to visit now.<br>
+            Offers reviewed as they come.<br>
+            MLS# 41126748 · Listed 3/16/2026
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-left">1160 Miller Ave · Berkeley Hills, CA 94708</span>
+  <div class="footer-right">
+    Listed by Tom Telfer &amp; Dan Fitzpatrick · Compass<br>
+    DRE# 02121473 · DRE# 01892947 · Broker DRE# 01527235<br>
+    © 2026 · Information deemed reliable but not guaranteed
+  </div>
+</footer>
+
+<script>
+  // Form submit handler — opens default mail client with form details
+  // Replace with a proper form backend (Formspree, etc.) when ready
+  function handleSubmit(e) {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const name = `${data.get('firstName')} ${data.get('lastName')}`;
+    const email = data.get('email');
+    const phone = data.get('phone');
+    const interest = data.get('interest');
+    const message = data.get('message');
+    const body = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AInterest: ${interest}%0A%0AMessage: ${message}`;
+    window.location.href = `mailto:tom.telfer@compass.com?subject=Inquiry: 1160 Miller Ave&body=${body}`;
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+  }
+
+  // Smooth nav link highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--charcoal)' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
